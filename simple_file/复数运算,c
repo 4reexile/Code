@@ -1,0 +1,80 @@
+#define _CRT_SECURE_NO_WARNINGS //防报错
+#include "stdio.h"
+
+//这里的temp1.a之类的,里面的.全部可以替换成->
+ 
+typedef struct{
+    float a;
+    float b;
+} Complex;
+ 
+Complex add(Complex num1, Complex num2){//加法运算
+    Complex temp1;
+    temp1.a=num1.a+num2.a;
+    temp1.b=num1.b+num2.b;
+    return(temp1);
+}
+ 
+Complex sub(Complex num1, Complex num2){//减法运算
+    Complex temp2;
+    temp2.a=num1.a-num2.a;
+    temp2.b=num1.b-num2.b;
+    return(temp2);
+}
+
+Complex mul(Complex num1, Complex num2){//乘法运算
+    Complex temp3;
+    temp3.a = num1.a*num2.a-num1.b*num2.b;
+    temp3.b = num1.a*num2.b+num2.a*num1.b;
+    return(temp3);
+}
+
+Complex div(Complex num1, Complex num2){//减法运算
+    Complex temp4;
+    temp4.a=1.0*(num1.a*num2.a+num1.b*num2.b)/(num2.a*num2.a+num2.b*num2.b);
+    temp4.b=1.0*(num1.b*num2.a-num1.a*num2.b)/(num2.a*num2.a+num2.b*num2.b);
+    return(temp4);
+}
+ 
+int main(){
+    Complex num1,num2,temp1,temp2,temp3,temp4;
+
+    scanf("%f %f", &num1.a, &num1.b);
+    scanf("%f %f", &num2.a, &num2.b);
+
+    temp1=add(num1, num2);
+    temp2=sub(num1, num2);
+    temp3=mul(num1, num2);
+    temp4=div(num1, num2);
+
+    if(temp1.b > 0)
+        printf("sum:%f %f\n", temp1.a, temp1.b);
+    else if(temp1.b < 0)
+        printf("sum:%f %f\n", temp1.a, temp1.b);
+    else
+        printf("sum:%f\n", temp1.a);
+
+    if(temp2.b > 0)
+        printf("difference:%f %f\n", temp2.a, temp2.b);
+    else if(temp2.b < 0)
+        printf("difference:%f %f\n", temp2.a, temp2.b);
+    else
+        printf("difference:%f\n", temp2.a);
+
+    if(temp3.b<0)
+		printf("product:%f %f\n",temp3.a,temp3.b);
+	else if(temp3.b>0)
+		printf("product:%f %f\n",temp3.a,temp3.b);
+	else
+		printf("product:%f\n",temp3.a);
+
+
+	if(temp4.b<0)
+		printf("quotient:%f %f\n",temp4.a,temp4.b);
+	else if(temp4.b>0)
+		printf("quotient:%f %f\n",temp4.a,temp4.b);
+	else
+		printf("quotient:%f\n",temp4.a);
+
+    return 0;
+}
