@@ -1,6 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/*
+    1.创建空的环形队列
+    2.队列为空判断
+    3.队列为满判断
+    4.入队
+    5.出队
+    6.取队首元素
+    7.利用队列实现银行排队业务处理模拟
+*/
+
+
 /*此处是顺序队列数据结构定义*/
 typedef int DataType;
 struct seqQueue//请完成数据结构定义
